@@ -1,6 +1,6 @@
 import { catchAsyncErrors } from "../middlewares/catchAsyncError.js";
 import { Job } from "../models/jobSchema.js";
-import ErrorHandler from "../middlewares/error.js";
+import ErrorHandler from "../middlewares/errorMiddleware.js";
 
 export const getAllJobs = catchAsyncErrors(async (req, res, next) => {
   const jobs = await Job.find({ expired: false });
