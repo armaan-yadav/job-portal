@@ -1,16 +1,17 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import mongoose from "mongoose"; //just mongoose import!
-import dotenv from "dotenv"
-dotenv.config()
 
+const DB_URL = process.env.DB_URL;
 //Database connection here!
  const dbConnection  = ()=>{
-    mongoose.connect(process.env.DB_URL,{
+    mongoose.connect(DB_URL,{
        dbName: "Job_Portal"
 
     }).then(()=>{ //agar connect ho jaye toh!
        console.log("MongoDB Connected Sucessfully !")
     }).catch((error)=>{
-        console.log(`Failed to connect ${error}`)
+        console.log(`Failed to connect ${error.message}`)
     })
     
 }

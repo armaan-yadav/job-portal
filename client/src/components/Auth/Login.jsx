@@ -42,62 +42,58 @@ const Login = () => {
   }
 
   return (
-    <>
-      <section className="authPage">
-        <div className="container">
-          <div className="header">
-            <img src="/careerconnect-black.png" alt="logo" />
-            <h3>Login to your account</h3>
+    <section className="authPage">
+      <div className="container">
+        <div className="header">
+          <img src="/careerconnect-white.png" alt="logo" />
+          <h3>Login</h3>
+        </div>
+        <form onSubmit={handleLogin}>
+          <div className="inputTag">
+            <label>Login As</label>
+            <div>
+              <select value={role} onChange={(e) => setRole(e.target.value)}>
+                <option value="">Select Role</option>
+                <option value="Job Seeker">Job Seeker</option>
+                <option value="Employer">Employer</option>
+              </select>
+              <FaRegUser />
+            </div>
           </div>
-          <form>
-            <div className="inputTag">
-              <label>Login As</label>
-              <div>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option value="">Select Role</option>
-
-                  <option value="Job Seeker">Job Seeker</option>
-                  <option value="Employer">Employer</option>
-                </select>
-                <FaRegUser />
-              </div>
+          <div className="inputTag">
+            <label>Email Address</label>
+            <div>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <MdOutlineMailOutline />
             </div>
-            <div className="inputTag">
-              <label>Email Address</label>
-              <div>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <MdOutlineMailOutline />
-              </div>
+          </div>
+          <div className="inputTag">
+            <label>Password</label>
+            <div>
+              <input
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <RiLock2Fill />
             </div>
-            <div className="inputTag">
-              <label>Password</label>
-              <div>
-                <input
-                  type="password"
-                  placeholder="Enter your Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <RiLock2Fill />
-              </div>
-            </div>
-            <button type="submit" onClick={handleLogin}>
-              Login
+          </div>
+          <button type="submit">Login</button>
+          <Link to="/register">
+            <button type="button" className="register-btn">
+              Register Now
             </button>
-            <Link to={"/register"}>Register Now</Link>
-          </form>
-        </div>
-        <div className="banner">
-          <img src="/login.png" alt="login" />
-        </div>
-      </section>
-    </>
+          </Link>
+        </form>
+      </div>
+    </section>
   );
 };
 
-export default Login;
+export default Login
